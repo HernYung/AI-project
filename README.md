@@ -57,7 +57,7 @@ print(f"Registered models: {registry.list_models()}")
 ### Using the Factory Pattern
 
 ```python
-from multimodel_ai import ModelFactory, ModelType
+from multimodel_ai import ModelFactory
 from multimodel_ai.models import TextGenerationModel
 
 # Create a factory
@@ -68,7 +68,6 @@ factory.register_model_class(TextGenerationModel)
 model = factory.create_model(
     class_name="TextGenerationModel",
     name="dynamic-model",
-    model_type=ModelType.TEXT_GENERATION,
     config={"parameters": {"max_length": 200}}
 )
 
