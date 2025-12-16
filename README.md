@@ -21,8 +21,8 @@
 ```yaml
 name: sentiment-analyzer
 version: 0.1.0
-enabled: true                            # optional, 비활성화 시 false
-entrypoint: sentiment:handler            # 패키지:메서드 형식 또는 HTTP 엔드포인트 URL
+enabled: true                            # optional, 없으면 기본 true, 비활성화 시 false
+entrypoint: sentiment:handler            # 예: sentiment:handler(패키지:메서드) 또는 https://api.example.com/invoke(HTTP)
 intents:
   - classify-sentiment
 inputs:
@@ -35,7 +35,7 @@ resources:
   memory: 128Mi
 policies:
   auth: service-token
-  rate_limit: 50/min (rpm)
+  rate_limit: 50/min                     # requests per minute
 healthcheck: /health
 ```
 
